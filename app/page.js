@@ -1,6 +1,14 @@
-import Image from "next/image";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export default function Home() {
+  const files = fs.readdirSync(path.join("app/posts"));
+  const posts = files.map((filename) => {
+    const slug = filename.replace(".mdx", "");
+    return slug;
+  });
+  console.log(posts);
   return (
     <div className="container mx-auto flex gap-4 px-4">
       <section>
