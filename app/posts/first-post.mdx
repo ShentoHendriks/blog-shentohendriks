@@ -1,0 +1,50 @@
+# My first post
+Hello, this is my first post!
+
+## What is Lumos?
+Lumos is a cutting-edge framework for building Webflow sites. It's designed with efficiency, scaleability, and accessibility at its core.
+
+It's unique approach to class naming, components, layout, & responsiveness brings together all of the modern best-practices of web development in a format that's now accessible to everyone.
+
+## How to get started?
+It's recommended that your website design follows the **12-column-grid**, although the Lumos framework can be applied to any website, it makes thing a lot easier if it's designed using the 12-column-grid.
+
+First open the `Fluid Builder` (I have it downloaded and can be run on Live Server for offline use in my cloud (documents/lumos)) Then customize everything according to your needs. It's important to think about your base font (in most cases it's 16px) this is value you need to calculate the rem values.
+
+Your `Webflow Site Width` and `Figma Design Width` should match each other. Unless you want your website to upscale on big screens, then you can enter a higher value on `Webflow Site Width`.
+
+Be sure to change and match the following values:
+- `--site--margin` (this is the spacing in your design between the side of your page. Enter the value of ***one*** side)
+- **Heading Variables**
+	- Usually there's a big font in the hero page of a website, this is called the **display font**.
+
+When you're done, copy the code and it's CSS variables into your program of choice. These are your responsive CSS variables.
+
+## Importing the base CSS
+The values you generated are used make your website responsive based on your inputs. Fonts will scale and become fluid exactly like your design. To make things work. Import the base css.
+[[01 Fleeting notes/Lumos 2.0.6 base css]]
+
+## Adding own global values
+Add the following variables and add it to `:root`. Customize it to your own preferences.
+`--site--gutter` is the default spacing between the columns in all of your column grids.
+and the `--site--width` should match the value you entered at `Webflow Site Width`
+```css
+--site--column-count: 12;
+--site--gutter: 1rem; 
+--site--width: 90rem;
+```
+
+## Essential workflow and structure
+### Naming conventions
+A component name (class name) is based on Three parts: `type_variation(optional)_element`
+
+In this example, slider is the `type` of section. Vertical is the `variation` if there's multiple types of slider sections. Wrap, contain, title, & text are all elements belonging to the `slider_vertical_` section.
+
+1. Every element **must** have a `class`.
+	1. Benefits:
+		1. Prevents accidental global changes.
+		2. Clear labels in navigator.
+		3. Cleaner and make things more scaleable.
+2. Component must **never** have more than **3 underscores**.
+3. Must always be the **first** class applied to an element.
+4. Contains always **underscores** instead of dashes.
