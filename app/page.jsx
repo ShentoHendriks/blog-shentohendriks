@@ -21,8 +21,14 @@ export default function Home() {
             key={post.slug}
             className="mb-4 rounded-md border border-gray-200 p-8"
           >
-            <p className="mb-4 text-xl">{post.slug}</p>
-            <Link href={`/post/${post.slug}`}>Read article</Link>
+            <p className="mb-4 text-xl">{post.frontmatter.title}</p>
+            <p className="mb-4 text-gray-500">{post.frontmatter.summary}</p>
+            <Link
+              className="mt-8 flex w-fit rounded-md bg-gray-200 px-4 py-2 duration-75 hover:bg-gray-400"
+              href={`/post/${post.slug}`}
+            >
+              Read article
+            </Link>
           </div>
         ))}
       </div>

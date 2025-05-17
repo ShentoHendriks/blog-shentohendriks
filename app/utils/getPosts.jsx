@@ -9,9 +9,9 @@ export default function getPosts() {
       path.join("app/posts", filename),
       "utf-8",
     );
-    const { data } = matter(contentWithMarkdown);
+    const { data, content } = matter(contentWithMarkdown);
     const slug = filename.replace(".mdx", "");
-    return { slug: slug, frontmatter: data };
+    return { slug: slug, frontmatter: data, content };
   });
   return posts;
 }
