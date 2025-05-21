@@ -4,8 +4,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 // import MyCustomH1 from '@/components/MyCustomH1';
 // import MyCustomParagraph from '@/components/MyCustomParagraph';
 
-export default function Page({ params }) {
-  const posts = getPosts(); // Assuming getPosts() returns an array of post objects
+export default async function Page({ params }) {
+  const posts = await getPosts(); // Assuming getPosts() returns an array of post objects
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) {
